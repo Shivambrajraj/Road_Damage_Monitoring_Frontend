@@ -1,0 +1,7 @@
+/* frontend/src/styles/variables.css */
+:root {
+  /* Anomaly Severity Color Scale (Custom semantic mapping fallbacks) */
+  --severity-low: #10b981;      /* Emerald-500: Minor Surface Cracks */
+  --severity-medium: #f59e0b;   /* Amber-500: Pothole / Moderate Failure */
+  --severity-high: #ef4444;     /* Red-500: Severe Structural Anomaly */
+}
