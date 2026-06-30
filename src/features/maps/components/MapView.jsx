@@ -12,6 +12,16 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
 });
 
+// Custom marker for your current live location (Red Pin to separate from reports)
+const liveLocationIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
 /**
  * Sub-module ensuring coordinate state changes dynamically reposition the lens matrix
  */
@@ -26,8 +36,9 @@ const ChangeView = ({ center }) => {
 const MapView = ({ markers = [] }) => {
   const defaultPosition = [22.5251, 75.9208]; // IIT Indore fallback
   const [mapCenter, setMapCenter] = useState(defaultPosition);
+  const [currentUserPos, setCurrentUserPos] = useState(null);
 
-  // Attempt to grab the user's real-time browser location on load
+  // Grab the user's real-time browser location on load
   useEffect(() => {
     if (markers.length > 0) {
       const lat = parseFloat(markers[0].latitude);
@@ -35,10 +46,17 @@ const MapView = ({ markers = [] }) => {
       if (!isNaN(lat) && !isNaN(lng)) {
         setMapCenter([lat, lng]);
       }
-    } else if (navigator.geolocation) {
+    }
+    
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setMapCenter([position.coords.latitude, position.coords.longitude]);
+          const liveCoords = [position.coords.latitude, position.coords.longitude];
+          setCurrentUserPos(liveCoords);
+          // If there are no database markers, center the map automatically on the user
+          if (markers.length === 0) {
+            setMapCenter(liveCoords);
+          }
         },
         (error) => {
           console.log("Geolocation blocked or unavailable, using fallback center.");
@@ -52,19 +70,30 @@ const MapView = ({ markers = [] }) => {
       
       <MapContainer 
         center={mapCenter} 
-        zoom={13} 
+        zoom={14} 
         scrollWheelZoom={true}
         className="w-full h-full"
       >
         <ChangeView center={mapCenter} />
 
-        {/* High-contrast dark-matter map grid layer perfectly matching your UI vibe */}
+        {/* High-contrast dark-matter map grid layer */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
         />
 
-        {/* Dynamic Mapping Pin Iteration */}
+        {/* 1. LIVE LOCATION PIN (Renders only if browser location is allowed) */}
+        {currentUserPos && (
+          <Marker position={currentUserPos} icon={liveLocationIcon}>
+            <Popup>
+              <div className="text-slate-900 font-semibold p-1">
+                📍 You Are Here (Current Live Position)
+              </div>
+            </Popup>
+          </Marker>
+        )}
+
+        {/* 2. DYNAMIC DATABASE MARKERS */}
         {markers.map((marker) => {
           const lat = parseFloat(marker.latitude);
           const lng = parseFloat(marker.longitude);
