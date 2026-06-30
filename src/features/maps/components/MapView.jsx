@@ -34,40 +34,43 @@ const ChangeView = ({ center }) => {
 };
 
 const MapView = ({ markers = [] }) => {
-  const defaultPosition = [22.5251, 75.9208]; // IIT Indore fallback
+  const defaultPosition = [22.5251, 75.9208]; // IIT Indore fallback, used only if geolocation is denied/unavailable
   const [mapCenter, setMapCenter] = useState(defaultPosition);
   const [currentUserPos, setCurrentUserPos] = useState(null);
 
-  // Grab the user's real-time browser location on load
+  // Always try to grab the user's real-time browser location first, and
+  // center the map there the moment it's available.
   useEffect(() => {
-    if (markers.length > 0) {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const liveCoords = [position.coords.latitude, position.coords.longitude];
+          setCurrentUserPos(liveCoords);
+          setMapCenter(liveCoords);
+        },
+        (error) => {
+          console.log("Geolocation blocked or unavailable, falling back.");
+          if (markers.length > 0) {
+            const lat = parseFloat(markers[0].latitude);
+            const lng = parseFloat(markers[0].longitude);
+            if (!isNaN(lat) && !isNaN(lng)) {
+              setMapCenter([lat, lng]);
+            }
+          }
+        }
+      );
+    } else if (markers.length > 0) {
       const lat = parseFloat(markers[0].latitude);
       const lng = parseFloat(markers[0].longitude);
       if (!isNaN(lat) && !isNaN(lng)) {
         setMapCenter([lat, lng]);
       }
     }
-    
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const liveCoords = [position.coords.latitude, position.coords.longitude];
-          setCurrentUserPos(liveCoords);
-          // If there are no database markers, center the map automatically on the user
-          if (markers.length === 0) {
-            setMapCenter(liveCoords);
-          }
-        },
-        (error) => {
-          console.log("Geolocation blocked or unavailable, using fallback center.");
-        }
-      );
-    }
-  }, [markers]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <div className="w-full aspect-video bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl relative z-0">
-      
+    <div className="w-full aspect-video bg-slate-950 border border-sky-500/30 rounded-2xl overflow-hidden shadow-2xl shadow-sky-500/10 relative z-0">
       <MapContainer 
         center={mapCenter} 
         zoom={14} 
@@ -76,13 +79,13 @@ const MapView = ({ markers = [] }) => {
       >
         <ChangeView center={mapCenter} />
 
-        {/* High-contrast dark-matter map grid layer */}
+        {/* Colorful Voyager tile layer */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
         />
 
-        {/* 1. LIVE LOCATION PIN (Renders only if browser location is allowed) */}
+        {/* 1. LIVE LOCATION PIN */}
         {currentUserPos && (
           <Marker position={currentUserPos} icon={liveLocationIcon}>
             <Popup>
@@ -109,7 +112,6 @@ const MapView = ({ markers = [] }) => {
           );
         })}
       </MapContainer>
-
     </div>
   );
 };
