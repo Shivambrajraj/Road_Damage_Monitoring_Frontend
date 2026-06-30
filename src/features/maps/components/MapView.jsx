@@ -39,7 +39,9 @@ const MapView = ({ markers = [] }) => {
   const [currentUserPos, setCurrentUserPos] = useState(null);
 
   // Always try to grab the user's real-time browser location first, and
-  // center the map there the moment it's available.
+  // center the map there the moment it's available -- regardless of
+  // whether database report markers exist. Report markers still render
+  // on the map, they just no longer override where the map opens.
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -50,6 +52,8 @@ const MapView = ({ markers = [] }) => {
         },
         (error) => {
           console.log("Geolocation blocked or unavailable, falling back.");
+          // Only fall back to the first report marker (or default) if the
+          // user's live location truly couldn't be obtained.
           if (markers.length > 0) {
             const lat = parseFloat(markers[0].latitude);
             const lng = parseFloat(markers[0].longitude);
@@ -66,11 +70,14 @@ const MapView = ({ markers = [] }) => {
         setMapCenter([lat, lng]);
       }
     }
+    // Intentionally run once on mount: we want the user's live position to
+    // win the very first time it resolves, not get re-overridden every time
+    // the `markers` list refreshes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="w-full aspect-video bg-slate-950 border border-sky-500/30 rounded-2xl overflow-hidden shadow-2xl shadow-sky-500/10 relative z-0">
+    <div className="w-full h-[450px] md:h-auto md:aspect-video bg-slate-950 border border-sky-500/30 rounded-2xl overflow-hidden shadow-2xl shadow-sky-500/10 relative z-0">
       <MapContainer 
         center={mapCenter} 
         zoom={14} 
@@ -79,13 +86,15 @@ const MapView = ({ markers = [] }) => {
       >
         <ChangeView center={mapCenter} />
 
-        {/* Colorful Voyager tile layer */}
+        {/* Colorful Voyager tile layer: roads, parks, and water all rendered
+            in distinct colors -- much more readable and inviting than a
+            flat dark basemap, while still matching the app's overall theme. */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
         />
 
-        {/* 1. LIVE LOCATION PIN */}
+        {/* 1. LIVE LOCATION PIN (Renders only if browser location is allowed) */}
         {currentUserPos && (
           <Marker position={currentUserPos} icon={liveLocationIcon}>
             <Popup>
