@@ -21,12 +21,13 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const data = await authService.login({ username: email, password });
-    
+
     if (data && data.access_token) {
+      const sessionUser = { username: data.username || email, isAdmin: !!data.is_admin };
       localStorage.setItem('token', data.access_token);
-      localStorage.setItem('user', JSON.stringify({ username: email }));
+      localStorage.setItem('user', JSON.stringify(sessionUser));
       setIsAuthenticated(true);
-      setUser({ username: email });
+      setUser(sessionUser);
       return true;
     }
     return false;
@@ -39,22 +40,55 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-const register = async (email, password) => {
-  try {
-    const data = await authService.register({ 
-      email: email, 
-      username: email, 
-      password: password 
-    });
-    return true;
-  } catch (err) {
-    throw new Error(err.response?.data?.detail || 'Account registration sequence failed.');
-  }
-};
+  // Step 1: request an OTP be emailed to this address
+  const sendOtp = async (email) => {
+    return await authService.sendOtp(email);
+  };
+
+  // Step 2: verify the code the user typed. Returns the verification_token
+  // string needed to finish registration.
+  const verifyOtp = async (email, otp) => {
+    const data = await authService.verifyOtp(email, otp);
+    return data.verification_token;
+  };
+
+  // Step 3: create the account using the OTP-verified token, then log in.
+  const register = async (email, password, verificationToken) => {
+    try {
+      const data = await authService.register({
+        email,
+        username: email,
+        password,
+        verification_token: verificationToken,
+      });
+
+      if (data && data.access_token) {
+        const sessionUser = { username: data.username || email, isAdmin: !!data.is_admin };
+        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('user', JSON.stringify(sessionUser));
+        setIsAuthenticated(true);
+        setUser(sessionUser);
+      }
+      return true;
+    } catch (err) {
+      throw new Error(err.message || 'Account registration sequence failed.');
+    }
+  };
 
   return (
-    // FIX 2: Added 'register' into the provider values stream so pages can capture it
-    <AuthContext.Provider value={{ isAuthenticated, user, login, register, logout, loading }}>
+    <AuthContext.Provider
+      value={{
+        isAuthenticated,
+        user,
+        isAdmin: !!user?.isAdmin,
+        login,
+        register,
+        sendOtp,
+        verifyOtp,
+        logout,
+        loading,
+      }}
+    >
       {!loading && children}
     </AuthContext.Provider>
   );

@@ -14,10 +14,12 @@ import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import AnalyticsPage from '../pages/AnalyticsPage';
 import MapPage from '../pages/MapPage';
+import AdminPage from '../pages/AdminPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 // Security Gatekeeper Fence
 import ProtectedRoute from './ProtectedRoute';
+import AdminRoute from './AdminRoute';
 
 const AppRoutes = () => {
   return (
@@ -37,6 +39,11 @@ const AppRoutes = () => {
           <Route path="reports/:id" element={<ReportDetailsPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
           <Route path="map" element={<MapPage />} />
+        </Route>
+
+        {/* ADMIN-ONLY PATHWAY SEGMENTS */}
+        <Route element={<AdminRoute />}>
+          <Route path="admin" element={<AdminPage />} />
         </Route>
 
         {/* 404 CATCH-ALL PROTECTION TERMINALS */}

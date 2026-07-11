@@ -6,7 +6,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../features/auth/context/AuthContext';
 
 const Navbar = () => {
-  const { isAuthenticated, logout, user } = useAuth();
+  const { isAuthenticated, isAdmin, logout, user } = useAuth();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,7 +41,10 @@ const Navbar = () => {
                 <NavLink to="/dashboard" className={linkClass}>Console</NavLink>
                 <NavLink to="/upload" className={linkClass}>Deploy Run</NavLink>
                 <NavLink to="/map" className={linkClass}>GIS Map</NavLink>
-                <NavLink to="/analytics" className={linkClass}>Analytics</NavLink>
+                                <NavLink to="/analytics" className={linkClass}>Analytics</NavLink>
+                {isAdmin && (
+                  <NavLink to="/admin" className={linkClass}>Admin</NavLink>
+                )}
                 <button
                   onClick={handleLogoutClick}
                   className="bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer"
@@ -80,7 +83,10 @@ const Navbar = () => {
               <NavLink to="/dashboard" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">Console</NavLink>
               <NavLink to="/upload" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">Deploy Run</NavLink>
               <NavLink to="/map" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">GIS Map</NavLink>
-              <NavLink to="/analytics" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">Analytics</NavLink>
+                            <NavLink to="/analytics" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">Analytics</NavLink>
+              {isAdmin && (
+                <NavLink to="/admin" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-sky-400">Admin</NavLink>
+              )}
               <button
                 onClick={() => { handleLogoutClick(); setIsOpen(false); }}
                 className="w-full text-left text-xs font-bold text-red-400 pt-2 border-t border-slate-900 cursor-pointer"
