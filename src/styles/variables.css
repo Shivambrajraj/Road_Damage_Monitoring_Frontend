@@ -1,7 +1,13 @@
 /* frontend/src/styles/variables.css */
 :root {
-  /* Anomaly Severity Color Scale (Custom semantic mapping fallbacks) */
-  --severity-low: #10b981;      /* Emerald-500: Minor Surface Cracks */
-  --severity-medium: #f59e0b;   /* Amber-500: Pothole / Moderate Failure */
-  --severity-high: #ef4444;     /* Red-500: Severe Structural Anomaly */
+  --severity-low: #10b981;
+  --severity-medium: #f59e0b;
+  --severity-high: #ef4444;
+
+  /* Report lifecycle status colors */
+  --status-pending: #64748b;     /* slate-500 */
+  --status-verified: #38bdf8;    /* sky-400 */
+  --status-in_progress: #f59e0b; /* amber-500 */
+  --status-resolved: #10b981;    /* emerald-500 */
+  --status-rejected: #ef4444;    /* red-500 */
 }

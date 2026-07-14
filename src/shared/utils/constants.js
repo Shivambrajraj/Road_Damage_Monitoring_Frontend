@@ -12,3 +12,19 @@ export const SEVERITY_LEVELS = {
   MEDIUM: 'medium',
   HIGH: 'high'
 };
+
+export const REPORT_STATUS = {
+  PENDING: 'pending',
+  VERIFIED: 'verified',
+  IN_PROGRESS: 'in_progress',
+  RESOLVED: 'resolved',
+  REJECTED: 'rejected',
+};
+
+export const REPORT_STATUS_LABELS = {
+  pending: 'Pending Review',
+  verified: 'Verified',
+  in_progress: 'In Progress',
+  resolved: 'Resolved',
+  rejected: 'Rejected',
+};
