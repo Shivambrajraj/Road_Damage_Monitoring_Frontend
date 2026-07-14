@@ -3,9 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../../shared/utils/formatDate';
 import { getSeverityBorderClass, getSeverityBadgeClass } from '../utils/severityUtils';
+import { getStatusBadgeClass } from '../utils/statusUtils';
+import { REPORT_STATUS_LABELS } from '../../../shared/utils/constants';
 
 const ReportCard = ({ report }) => {
-  const { id, type, severity, created_at, latitude, longitude } = report;
+  const { id, type, severity, status, created_at, latitude, longitude } = report;
 
   return (
     <div className={`bg-slate-950 border border-slate-800/80 rounded-xl p-5 border-l-4 ${getSeverityBorderClass(severity)} shadow-md hover:border-slate-700 transition-all space-y-4`}>
@@ -16,9 +18,16 @@ const ReportCard = ({ report }) => {
           <h4 className="text-sm font-bold text-white tracking-tight">{type}</h4>
           <p className="text-[10px] text-slate-500 font-mono">ID: {String(id).substring(0, 8)}...</p>
         </div>
-        <span className={`text-[9px] uppercase tracking-wider font-extrabold px-2.5 py-1 rounded text-slate-950 ${getSeverityBadgeClass(severity)}`}>
-          {severity}
-        </span>
+        <div className="flex items-center space-x-2">
+          {/* Status Badge */}
+          <span className={`inline-block text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded text-slate-950 ${getStatusBadgeClass(status)}`}>
+            {REPORT_STATUS_LABELS[status] || 'Pending Review'}
+          </span>
+          {/* Severity Badge */}
+          <span className={`text-[9px] uppercase tracking-wider font-extrabold px-2.5 py-1 rounded text-slate-950 ${getSeverityBadgeClass(severity)}`}>
+            {severity}
+          </span>
+        </div>
       </div>
 
       {/* Geospatial Coordinate Vector Sub-block */}

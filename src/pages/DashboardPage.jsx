@@ -8,6 +8,7 @@ import FilterBar from '../features/dashboard/components/FilterBar';
 import DashboardCharts from '../features/dashboard/components/DashboardCharts';
 import ReportTable from '../features/reports/components/ReportTable';
 import LoadingSpinner from '../shared/components/LoadingSpinner';
+import { StackIcon, AlertTriangleIcon } from '../shared/components/Icons';
 
 const DashboardPage = () => {
   const [search, setSearch] = useState('');
@@ -56,22 +57,41 @@ const DashboardPage = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <StatsCard title="Total Inventory" value={stats.total_anomalies || reports.length} icon="🚧" description="Database Total" />
-        <StatsCard title="Critical Run Logs" value={stats.high_severity || 0} icon="🚨" description="High Priority Flags" />
-        <StatsCard title="System Node Health" value={stats.system_health || '100%'} icon="⚡" description="API Connection Stable" />
+        <StatsCard 
+          title="Total Inventory" 
+          value={stats.total_anomalies || reports.length} 
+          icon={<StackIcon className="w-4 h-4 text-sky-400" />} 
+          description="Database Total" 
+        />
+        <StatsCard 
+          title="Critical Run Logs" 
+          value={stats.high_severity || 0} 
+          icon={<AlertTriangleIcon className="w-4 h-4 text-red-400" />} 
+          description="High Priority Flags" 
+        />
+        <StatsCard 
+          title="System Node Health" 
+          value={stats.system_health || '100%'} 
+          icon="⚡" 
+          description="API Connection Stable" 
+        />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-4">
           <SearchBar value={search} onChange={setSearch} />
+          
           <FilterBar 
             selectedType={filters.type || ''} 
-            onTypeChange={(val) => handleFilterChange('type', val)}
+            onTypeChange={(v) => handleFilterChange('type', v)}
             selectedSeverity={filters.severity || ''} 
-            onSeverityChange={(val) => handleFilterChange('severity', val)}
+            onSeverityChange={(v) => handleFilterChange('severity', v)}
+            selectedStatus={filters.status || ''} 
+            onStatusChange={(v) => handleFilterChange('status', v)}
             onReset={handleReset}
           />
-          <ReportTable reports={filteredReports} />
+          
+          <ReportTable reports={filteredReports} onStatusUpdated={refetch} />
         </div>
         <div>
           <DashboardCharts anomalyCounts={typeCounts} />

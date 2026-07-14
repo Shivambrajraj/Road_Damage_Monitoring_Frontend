@@ -4,6 +4,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 // Core State Handshaking (Step back 2 levels to src/, then into features/)
 import { useAuth } from '../../features/auth/context/AuthContext';
+import { RoadMarkIcon, MenuIcon, CloseIcon } from './Icons';
 
 const Navbar = () => {
   const { isAuthenticated, isAdmin, logout, user } = useAuth();
@@ -28,7 +29,7 @@ const Navbar = () => {
           {/* Platform Identity Branding */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2 text-white font-black tracking-tight text-sm uppercase">
-              <span>🛣️</span>
+              <RoadMarkIcon className="w-4 h-4 text-sky-400" />
               <span>RoadAnomalyAI</span>
             </Link>
           </div>
@@ -41,7 +42,7 @@ const Navbar = () => {
                 <NavLink to="/dashboard" className={linkClass}>Console</NavLink>
                 <NavLink to="/upload" className={linkClass}>Deploy Run</NavLink>
                 <NavLink to="/map" className={linkClass}>GIS Map</NavLink>
-                                <NavLink to="/analytics" className={linkClass}>Analytics</NavLink>
+                <NavLink to="/analytics" className={linkClass}>Analytics</NavLink>
                 {isAdmin && (
                   <NavLink to="/admin" className={linkClass}>Admin</NavLink>
                 )}
@@ -66,9 +67,9 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-400 hover:text-white focus:outline-none cursor-pointer text-xl"
+              className="text-slate-400 hover:text-white focus:outline-none cursor-pointer"
             >
-              {isOpen ? '✕' : '☰'}
+              {isOpen ? <CloseIcon className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -83,7 +84,7 @@ const Navbar = () => {
               <NavLink to="/dashboard" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">Console</NavLink>
               <NavLink to="/upload" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">Deploy Run</NavLink>
               <NavLink to="/map" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">GIS Map</NavLink>
-                            <NavLink to="/analytics" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">Analytics</NavLink>
+              <NavLink to="/analytics" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-slate-400">Analytics</NavLink>
               {isAdmin && (
                 <NavLink to="/admin" onClick={() => setIsOpen(false)} className="block text-xs font-semibold text-sky-400">Admin</NavLink>
               )}

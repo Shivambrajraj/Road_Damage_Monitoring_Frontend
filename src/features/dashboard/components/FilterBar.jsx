@@ -1,8 +1,16 @@
 // frontend/src/features/dashboard/components/FilterBar.jsx
 import React from 'react';
-import { ANOMALY_TYPES, SEVERITY_LEVELS } from '../../../shared/utils/constants';
+import { ANOMALY_TYPES, SEVERITY_LEVELS, REPORT_STATUS_LABELS } from '../../../shared/utils/constants';
 
-const FilterBar = ({ selectedType, onTypeChange, selectedSeverity, onSeverityChange, onReset }) => {
+const FilterBar = ({ 
+  selectedType, 
+  onTypeChange, 
+  selectedSeverity, 
+  onSeverityChange, 
+  selectedStatus, 
+  onStatusChange, 
+  onReset 
+}) => {
   return (
     <div className="w-full bg-slate-950 border border-slate-800/50 p-4 rounded-xl flex flex-col sm:flex-row gap-4 items-center justify-between">
       <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
@@ -33,6 +41,21 @@ const FilterBar = ({ selectedType, onTypeChange, selectedSeverity, onSeverityCha
             <option value="">All Priorities</option>
             {Object.values(SEVERITY_LEVELS).map((val) => (
               <option key={val} value={val}>{val}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Status Selector */}
+        <div className="flex items-center space-x-2">
+          <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Status:</span>
+          <select
+            value={selectedStatus}
+            onChange={(e) => onStatusChange(e.target.value)}
+            className="bg-slate-900 border border-slate-800 text-slate-300 rounded-lg text-xs px-3 py-2 focus:outline-none focus:border-sky-500"
+          >
+            <option value="">All Statuses</option>
+            {Object.entries(REPORT_STATUS_LABELS).map(([val, label]) => (
+              <option key={val} value={val}>{label}</option>
             ))}
           </select>
         </div>

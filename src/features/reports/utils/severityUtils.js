@@ -1,8 +1,4 @@
-// frontend/src/features/reports/utils/severityUtils.js
-
-/**
- * Returns the matching Tailwind v4 custom property property for border styling
- */
+// frontend/src/features/reports/utils/statusUtils.js
 export const getSeverityBorderClass = (severity) => {
   switch (String(severity).toLowerCase()) {
     case 'high':
@@ -16,7 +12,7 @@ export const getSeverityBorderClass = (severity) => {
 };
 
 /**
- * Returns the matching Tailwind v4 custom property for background color indicators
+ * Returns the matching Tailwind v4 custom property for background color indicators based on severity
  */
 export const getSeverityBadgeClass = (severity) => {
   switch (String(severity).toLowerCase()) {
@@ -26,6 +22,14 @@ export const getSeverityBadgeClass = (severity) => {
       return 'bg-(--severity-medium)';
     case 'low':
     default:
-      return 'bg-(--severity-low)';
+      return 'border-l-(--severity-low)';
   }
+};
+
+/**
+ * Returns the dynamic Tailwind v4 custom property for status background colors
+ */
+export const getStatusBadgeClass = (status) => {
+  const key = String(status || 'pending').toLowerCase();
+  return `bg-(--status-${key})`;
 };

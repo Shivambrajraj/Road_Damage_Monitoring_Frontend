@@ -3,8 +3,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../../shared/utils/formatDate';
 import { getSeverityBadgeClass } from '../utils/severityUtils';
+import { getStatusBadgeClass } from '../utils/statusUtils';
+import { REPORT_STATUS_LABELS } from '../../../shared/utils/constants';
+import { useAuth } from '../../auth/context/AuthContext';
+import reportService from '../services/reportService';
 
-const ReportTable = ({ reports }) => {
+const ReportTable = ({ reports, onStatusUpdated }) => {
+  const { isAdmin } = useAuth();
+
+  const handleStatusChange = async (reportId, newStatus) => {
+    try {
+      await reportService.updateStatus(reportId, newStatus);
+      onStatusUpdated?.();
+    } catch (err) {
+      console.error('Failed to update report status:', err);
+    }
+  };
+
   if (!reports || reports.length === 0) {
     return (
       <div className="text-center py-12 border border-slate-800 border-dashed rounded-xl bg-slate-950/20">
@@ -22,6 +37,7 @@ const ReportTable = ({ reports }) => {
               <th className="px-6 py-4">Index Token</th>
               <th className="px-6 py-4">Classification</th>
               <th className="px-6 py-4">Priority Status</th>
+              <th className="px-6 py-4">Lifecycle</th>
               <th className="px-6 py-4">GIS Coordinates</th>
               <th className="px-6 py-4">Logged Stamp</th>
               <th className="px-6 py-4 text-right">Action</th>
@@ -38,6 +54,23 @@ const ReportTable = ({ reports }) => {
                   <span className={`text-[9px] uppercase tracking-wider font-black px-2 py-0.5 rounded text-slate-950 ${getSeverityBadgeClass(report.severity)}`}>
                     {report.severity}
                   </span>
+                </td>
+                <td className="px-6 py-4">
+                  {isAdmin ? (
+                    <select
+                      value={report.status || 'pending'}
+                      onChange={(e) => handleStatusChange(report.id, e.target.value)}
+                      className={`text-[10px] font-bold uppercase tracking-wide rounded px-2 py-1 border border-slate-800 bg-slate-900 text-white cursor-pointer focus:outline-none`}
+                    >
+                      {Object.entries(REPORT_STATUS_LABELS).map(([val, label]) => (
+                        <option key={val} value={val}>{label}</option>
+                      ))}
+                    </select>
+                  ) : (
+                    <span className={`text-[9px] uppercase tracking-wider font-black px-2 py-0.5 rounded text-slate-950 ${getStatusBadgeClass(report.status)}`}>
+                      {REPORT_STATUS_LABELS[report.status] || 'Pending Review'}
+                    </span>
+                  )}
                 </td>
                 <td className="px-6 py-4 font-mono text-[11px] text-slate-400">
                   {parseFloat(report.latitude).toFixed(4)}, {parseFloat(report.longitude).toFixed(4)}
