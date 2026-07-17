@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "होम",
+    "console": "कंसोल",
+    "deployRun": "अपलोड करें",
+    "gisMap": "जीआईएस मानचित्र",
+    "analytics": "एनालिटिक्स",
+    "admin": "एडमिन",
+    "accessPortal": "पोर्टल में प्रवेश करें",
+    "disconnect": "लॉग आउट",
+    "search": "पेज, रिपोर्ट, एनालिटिक्स खोजें…",
+    "searchShort": "खोजें…"
+  },
+  "region": {
+    "label": "क्षेत्र",
+    "national": "राष्ट्रीय दृश्य",
+    "states": "राज्य",
+    "unionTerritories": "केंद्र शासित प्रदेश"
+  },
+  "profile": {
+    "myProfile": "मेरी प्रोफ़ाइल",
+    "accountSettings": "खाता सेटिंग्स",
+    "preferences": "प्राथमिकताएँ",
+    "appearance": "दिखावट",
+    "language": "भाषा",
+    "notifications": "सूचनाएं",
+    "support": "सहायता",
+    "logout": "लॉग आउट"
+  },
+  "notifications": {
+    "title": "सूचनाएं",
+    "markAllRead": "सभी को पढ़ा हुआ चिह्नित करें",
+    "viewAll": "सभी गतिविधि देखें",
+    "empty": "आप पूरी तरह से अद्यतित हैं।"
+  },
+  "command": {
+    "placeholder": "कमांड टाइप करें या खोजें…",
+    "pages": "पेज",
+    "reports": "रिपोर्ट्स",
+    "analytics": "एनालिटिक्स",
+    "gis": "जीआईएस",
+    "dashboard": "डैशबोर्ड",
+    "settings": "सेटिंग्स",
+    "documentation": "दस्तावेज़ीकरण",
+    "commands": "कमांड्स",
+    "noResults": "कोई परिणाम नहीं मिला।",
+    "hint": "नेविगेट करें",
+    "select": "चुनें",
+    "close": "बंद करें"
+  },
+  "footer": {
+    "platform": "प्लेटफ़ॉर्म",
+    "solutions": "समाधान",
+    "technology": "तकनीक",
+    "resources": "संसाधन",
+    "company": "कंपनी",
+    "support": "सहायता",
+    "privacy": "गोपनीयता नीति",
+    "terms": "सेवा की शर्तें",
+    "rights": "सर्वाधिकार सुरक्षित।"
+  }
+}

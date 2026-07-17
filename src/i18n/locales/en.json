@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Home",
+    "console": "Console",
+    "deployRun": "Deploy Run",
+    "gisMap": "GIS Map",
+    "analytics": "Analytics",
+    "admin": "Admin",
+    "accessPortal": "Access Portal",
+    "disconnect": "Disconnect",
+    "search": "Search pages, reports, analytics…",
+    "searchShort": "Search…"
+  },
+  "region": {
+    "label": "Region",
+    "national": "National View",
+    "states": "States",
+    "unionTerritories": "Union Territories"
+  },
+  "profile": {
+    "myProfile": "My Profile",
+    "accountSettings": "Account Settings",
+    "preferences": "Preferences",
+    "appearance": "Appearance",
+    "language": "Language",
+    "notifications": "Notifications",
+    "support": "Support",
+    "logout": "Logout"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark all as read",
+    "viewAll": "View all activity",
+    "empty": "You're all caught up."
+  },
+  "command": {
+    "placeholder": "Type a command or search…",
+    "pages": "Pages",
+    "reports": "Reports",
+    "analytics": "Analytics",
+    "gis": "GIS",
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "documentation": "Documentation",
+    "commands": "Commands",
+    "noResults": "No results found.",
+    "hint": "Navigate",
+    "select": "Select",
+    "close": "Close"
+  },
+  "footer": {
+    "platform": "Platform",
+    "solutions": "Solutions",
+    "technology": "Technology",
+    "resources": "Resources",
+    "company": "Company",
+    "support": "Support",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved."
+  }
+}

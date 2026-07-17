@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "ਹੋਮ",
+    "console": "ਕੰਸੋਲ",
+    "deployRun": "ਅੱਪਲੋਡ ਕਰੋ",
+    "gisMap": "ਜੀਆਈਐਸ ਨਕਸ਼ਾ",
+    "analytics": "ਐਨਾਲਿਟਿਕਸ",
+    "admin": "ਐਡਮਿਨ",
+    "accessPortal": "ਪੋਰਟਲ ਤੱਕ ਪਹੁੰਚ ਕਰੋ",
+    "disconnect": "ਲੌਗ ਆਉਟ",
+    "search": "ਪੰਨੇ, ਰਿਪੋਰਟਾਂ, ਐਨਾਲਿਟਿਕਸ ਖੋਜੋ…",
+    "searchShort": "ਖੋਜੋ…"
+  },
+  "region": {
+    "label": "ਖੇਤਰ",
+    "national": "ਰਾਸ਼ਟਰੀ ਦ੍ਰਿਸ਼",
+    "states": "ਰਾਜ",
+    "unionTerritories": "ਕੇਂਦਰ ਸ਼ਾਸਿਤ ਪ੍ਰਦੇਸ਼"
+  },
+  "profile": {
+    "myProfile": "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ",
+    "accountSettings": "ਖਾਤਾ ਸੈਟਿੰਗਾਂ",
+    "preferences": "ਤਰਜੀਹਾਂ",
+    "appearance": "ਦਿੱਖ",
+    "language": "ਭਾਸ਼ਾ",
+    "notifications": "ਸੂਚਨਾਵਾਂ",
+    "support": "ਸਹਾਇਤਾ",
+    "logout": "ਲੌਗ ਆਉਟ"
+  },
+  "notifications": {
+    "title": "ਸੂਚਨਾਵਾਂ",
+    "markAllRead": "ਸਭ ਨੂੰ ਪੜ੍ਹਿਆ ਗਿਆ ਚਿੰਨ੍ਹਿਤ ਕਰੋ",
+    "viewAll": "ਸਾਰੀ ਗਤੀਵਿਧੀ ਵੇਖੋ",
+    "empty": "ਤੁਸੀਂ ਅੱਪਡੇਟ ਹੋ।"
+  },
+  "command": {
+    "placeholder": "ਕਮਾਂਡ ਟਾਈਪ ਕਰੋ ਜਾਂ ਖੋਜੋ…",
+    "pages": "ਪੰਨੇ",
+    "reports": "ਰਿਪੋਰਟਾਂ",
+    "analytics": "ਐਨਾਲਿਟਿਕਸ",
+    "gis": "ਜੀਆਈਐਸ",
+    "dashboard": "ਡੈਸ਼ਬੋਰਡ",
+    "settings": "ਸੈਟਿੰਗਾਂ",
+    "documentation": "ਦਸਤਾਵੇਜ਼",
+    "commands": "ਕਮਾਂਡਾਂ",
+    "noResults": "ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।",
+    "hint": "ਨੈਵੀਗੇਟ ਕਰੋ",
+    "select": "ਚੁਣੋ",
+    "close": "ਬੰਦ ਕਰੋ"
+  },
+  "footer": {
+    "platform": "ਪਲੇਟਫਾਰਮ",
+    "solutions": "ਹੱਲ",
+    "technology": "ਤਕਨਾਲੋਜੀ",
+    "resources": "ਸਰੋਤ",
+    "company": "ਕੰਪਨੀ",
+    "support": "ਸਹਾਇਤਾ",
+    "privacy": "ਗੋਪਨੀਯਤਾ ਨੀਤੀ",
+    "terms": "ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ",
+    "rights": "ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ।"
+  }
+}

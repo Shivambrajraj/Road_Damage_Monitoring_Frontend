@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "ہوم",
+    "console": "کنسول",
+    "deployRun": "اپ لوڈ کریں",
+    "gisMap": "جی آئی ایس نقشہ",
+    "analytics": "اینالیٹکس",
+    "admin": "ایڈمن",
+    "accessPortal": "پورٹل تک رسائی حاصل کریں",
+    "disconnect": "لاگ آؤٹ",
+    "search": "صفحات، رپورٹس، اینالیٹکس تلاش کریں…",
+    "searchShort": "تلاش کریں…"
+  },
+  "region": {
+    "label": "علاقہ",
+    "national": "قومی منظر",
+    "states": "ریاستیں",
+    "unionTerritories": "مرکز کے زیرِ انتظام علاقے"
+  },
+  "profile": {
+    "myProfile": "میری پروفائل",
+    "accountSettings": "اکاؤنٹ کی ترتیبات",
+    "preferences": "ترجیحات",
+    "appearance": "ظاہری شکل",
+    "language": "زبان",
+    "notifications": "اطلاعات",
+    "support": "معاونت",
+    "logout": "لاگ آؤٹ"
+  },
+  "notifications": {
+    "title": "اطلاعات",
+    "markAllRead": "سب کو پڑھا ہوا نشان زد کریں",
+    "viewAll": "تمام سرگرمی دیکھیں",
+    "empty": "آپ اپ ڈیٹ ہیں۔"
+  },
+  "command": {
+    "placeholder": "کمانڈ ٹائپ کریں یا تلاش کریں…",
+    "pages": "صفحات",
+    "reports": "رپورٹس",
+    "analytics": "اینالیٹکس",
+    "gis": "جی آئی ایس",
+    "dashboard": "ڈیش بورڈ",
+    "settings": "ترتیبات",
+    "documentation": "دستاویزات",
+    "commands": "کمانڈز",
+    "noResults": "کوئی نتیجہ نہیں ملا۔",
+    "hint": "نیویگیٹ کریں",
+    "select": "منتخب کریں",
+    "close": "بند کریں"
+  },
+  "footer": {
+    "platform": "پلیٹ فارم",
+    "solutions": "حل",
+    "technology": "ٹیکنالوجی",
+    "resources": "وسائل",
+    "company": "کمپنی",
+    "support": "معاونت",
+    "privacy": "رازداری کی پالیسی",
+    "terms": "سروس کی شرائط",
+    "rights": "جملہ حقوق محفوظ ہیں۔"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "मुख्यपृष्ठ",
+    "console": "कन्सोल",
+    "deployRun": "अपलोड करा",
+    "gisMap": "जीआयएस नकाशा",
+    "analytics": "अॅनालिटिक्स",
+    "admin": "अ‍ॅडमिन",
+    "accessPortal": "पोर्टलमध्ये प्रवेश करा",
+    "disconnect": "लॉग आउट",
+    "search": "पृष्ठे, अहवाल, अॅनालिटिक्स शोधा…",
+    "searchShort": "शोधा…"
+  },
+  "region": {
+    "label": "प्रदेश",
+    "national": "राष्ट्रीय दृश्य",
+    "states": "राज्ये",
+    "unionTerritories": "केंद्रशासित प्रदेश"
+  },
+  "profile": {
+    "myProfile": "माझी प्रोफाइल",
+    "accountSettings": "खाते सेटिंग्ज",
+    "preferences": "प्राधान्ये",
+    "appearance": "रूप",
+    "language": "भाषा",
+    "notifications": "सूचना",
+    "support": "सहाय्य",
+    "logout": "लॉग आउट"
+  },
+  "notifications": {
+    "title": "सूचना",
+    "markAllRead": "सर्व वाचले म्हणून चिन्हांकित करा",
+    "viewAll": "सर्व क्रियाकलाप पहा",
+    "empty": "तुम्ही अद्ययावत आहात."
+  },
+  "command": {
+    "placeholder": "कमांड टाइप करा किंवा शोधा…",
+    "pages": "पृष्ठे",
+    "reports": "अहवाल",
+    "analytics": "अॅनालिटिक्स",
+    "gis": "जीआयएस",
+    "dashboard": "डॅशबोर्ड",
+    "settings": "सेटिंग्ज",
+    "documentation": "दस्तऐवजीकरण",
+    "commands": "कमांड्स",
+    "noResults": "कोणतेही निकाल आढळले नाहीत.",
+    "hint": "नेव्हिगेट करा",
+    "select": "निवडा",
+    "close": "बंद करा"
+  },
+  "footer": {
+    "platform": "प्लॅटफॉर्म",
+    "solutions": "उपाय",
+    "technology": "तंत्रज्ञान",
+    "resources": "संसाधने",
+    "company": "कंपनी",
+    "support": "सहाय्य",
+    "privacy": "गोपनीयता धोरण",
+    "terms": "सेवा अटी",
+    "rights": "सर्व हक्क राखीव."
+  }
+}

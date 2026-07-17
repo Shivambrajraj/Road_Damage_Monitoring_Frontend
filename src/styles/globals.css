@@ -52,6 +52,16 @@
   animation: scanline 3.5s ease-in-out infinite;
 }
 
+@keyframes scanner {
+  0% { top: 0%; }
+  50% { top: calc(100% - 4px); }
+  100% { top: 0%; }
+}
+
+.animate-scanner {
+  animation: scanner 2s ease-in-out infinite;
+}
+
 .hover-lift {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -59,3 +69,46 @@
 .hover-lift:hover {
   transform: translateY(-4px);
 }
+
+/* Skeleton shimmer sweep */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+.animate-shimmer {
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* Button hover glow */
+.hover-glow {
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.25), 0 8px 24px -8px rgba(56, 189, 248, 0.45);
+  transform: translateY(-1px);
+}
+
+/* Map marker pulse ring */
+@keyframes markerPulse {
+  0% { transform: scale(0.9); opacity: 0.75; }
+  70% { transform: scale(2.2); opacity: 0; }
+  100% { opacity: 0; }
+}
+.animate-marker-pulse {
+  animation: markerPulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Notification badge pop */
+@keyframes badgePop {
+  0% { transform: scale(0.4); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-badge-pop {
+  animation: badgePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Scrollbar polish for dropdowns / command palette */
+.scrollbar-thin::-webkit-scrollbar { width: 6px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.4); border-radius: 999px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.7); }

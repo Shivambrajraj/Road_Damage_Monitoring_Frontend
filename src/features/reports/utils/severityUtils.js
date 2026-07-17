@@ -1,4 +1,4 @@
-// frontend/src/features/reports/utils/statusUtils.js
+// frontend/src/features/reports/utils/severityUtils.js
 export const getSeverityBorderClass = (severity) => {
   switch (String(severity).toLowerCase()) {
     case 'high':
@@ -22,14 +22,6 @@ export const getSeverityBadgeClass = (severity) => {
       return 'bg-(--severity-medium)';
     case 'low':
     default:
-      return 'border-l-(--severity-low)';
+      return 'bg-(--severity-low)';
   }
-};
-
-/**
- * Returns the dynamic Tailwind v4 custom property for status background colors
- */
-export const getStatusBadgeClass = (status) => {
-  const key = String(status || 'pending').toLowerCase();
-  return `bg-(--status-${key})`;
 };

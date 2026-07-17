@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "హోమ్",
+    "console": "కన్సోల్",
+    "deployRun": "అప్‌లోడ్ చేయండి",
+    "gisMap": "జిఐఎస్ మ్యాప్",
+    "analytics": "అనలిటిక్స్",
+    "admin": "అడ్మిన్",
+    "accessPortal": "పోర్టల్‌ను యాక్సెస్ చేయండి",
+    "disconnect": "లాగ్ అవుట్",
+    "search": "పేజీలు, నివేదికలు, అనలిటిక్స్ శోధించండి…",
+    "searchShort": "శోధించండి…"
+  },
+  "region": {
+    "label": "ప్రాంతం",
+    "national": "జాతీయ దృశ్యం",
+    "states": "రాష్ట్రాలు",
+    "unionTerritories": "కేంద్రపాలిత ప్రాంతాలు"
+  },
+  "profile": {
+    "myProfile": "నా ప్రొఫైల్",
+    "accountSettings": "ఖాతా సెట్టింగ్‌లు",
+    "preferences": "ప్రాధాన్యతలు",
+    "appearance": "రూపం",
+    "language": "భాష",
+    "notifications": "నోటిఫికేషన్‌లు",
+    "support": "మద్దతు",
+    "logout": "లాగ్ అవుట్"
+  },
+  "notifications": {
+    "title": "నోటిఫికేషన్‌లు",
+    "markAllRead": "అన్నీ చదివినట్లు గుర్తించండి",
+    "viewAll": "అన్ని కార్యకలాపాలను చూడండి",
+    "empty": "మీరు అప్‌డేట్‌గా ఉన్నారు."
+  },
+  "command": {
+    "placeholder": "కమాండ్ టైప్ చేయండి లేదా శోధించండి…",
+    "pages": "పేజీలు",
+    "reports": "నివేదికలు",
+    "analytics": "అనలిటిక్స్",
+    "gis": "జిఐఎస్",
+    "dashboard": "డాష్‌బోర్డ్",
+    "settings": "సెట్టింగ్‌లు",
+    "documentation": "డాక్యుమెంటేషన్",
+    "commands": "కమాండ్‌లు",
+    "noResults": "ఫలితాలు కనుగొనబడలేదు.",
+    "hint": "నావిగేట్ చేయండి",
+    "select": "ఎంచుకోండి",
+    "close": "మూసివేయండి"
+  },
+  "footer": {
+    "platform": "ప్లాట్‌ఫారమ్",
+    "solutions": "పరిష్కారాలు",
+    "technology": "సాంకేతికత",
+    "resources": "వనరులు",
+    "company": "కంపెనీ",
+    "support": "మద్దతు",
+    "privacy": "గోప్యతా విధానం",
+    "terms": "సేవా నిబంధనలు",
+    "rights": "అన్ని హక్కులు కలిగి ఉన్నాయి."
+  }
+}

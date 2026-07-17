@@ -3,7 +3,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import adminService from '../features/admin/services/adminService';
 import { useAuth } from '../features/auth/context/AuthContext';
 import StatsCard from '../features/dashboard/components/StatsCard';
-import LoadingSpinner from '../shared/components/LoadingSpinner';
+import { SkeletonStatsCard, SkeletonTable } from '../shared/components/Skeleton';
+import EmptyState from '../shared/components/EmptyState';
 import ErrorMessage from '../shared/components/ErrorMessage';
 import Button from '../shared/components/Button';
 
@@ -75,7 +76,20 @@ const AdminPage = () => {
     }
   };
 
-  if (loading) return <LoadingSpinner message="Loading administrative console..." />;
+  if (loading) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-10 space-y-8">
+        <div className="space-y-1">
+          <div className="h-6 w-56 bg-slate-900 rounded animate-pulse" />
+          <div className="h-3 w-32 bg-slate-900 rounded animate-pulse" />
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <SkeletonStatsCard /><SkeletonStatsCard /><SkeletonStatsCard /><SkeletonStatsCard />
+        </div>
+        <SkeletonTable rows={6} cols={4} />
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 space-y-8">
@@ -110,6 +124,13 @@ const AdminPage = () => {
       </div>
 
       {tab === 'users' ? (
+        users.length === 0 ? (
+          <EmptyState
+            icon="folder"
+            title="No users found"
+            description="Once operators or administrators are added to the platform, they'll appear here for management."
+          />
+        ) : (
         <div className="overflow-x-auto bg-slate-950 border border-slate-800 rounded-2xl">
           <table className="w-full text-left text-xs">
             <thead>
@@ -122,7 +143,7 @@ const AdminPage = () => {
             </thead>
             <tbody>
               {users.map((u) => (
-                <tr key={u.id} className="border-b border-slate-900 last:border-0">
+                <tr key={u.id} className="border-b border-slate-900 last:border-0 hover:bg-slate-900/40 transition-colors">
                   <td className="p-4 text-slate-200 font-mono">{u.email}</td>
                   <td className="p-4">
                     <span
@@ -158,7 +179,15 @@ const AdminPage = () => {
             </tbody>
           </table>
         </div>
+        )
       ) : (
+        reports.length === 0 ? (
+          <EmptyState
+            icon="inbox"
+            title="No reports submitted yet"
+            description="Reports submitted by field inspectors and citizens will be listed here for review."
+          />
+        ) : (
         <div className="overflow-x-auto bg-slate-950 border border-slate-800 rounded-2xl">
           <table className="w-full text-left text-xs">
             <thead>
@@ -171,7 +200,7 @@ const AdminPage = () => {
             </thead>
             <tbody>
               {reports.map((r) => (
-                <tr key={r.id} className="border-b border-slate-900 last:border-0">
+                <tr key={r.id} className="border-b border-slate-900 last:border-0 hover:bg-slate-900/40 transition-colors">
                   <td className="p-4 text-slate-400 font-mono">#{r.id}</td>
                   <td className="p-4 text-slate-200">{r.damage_category}</td>
                   <td className="p-4 text-slate-300">{r.severity_level || '—'}</td>
@@ -181,6 +210,7 @@ const AdminPage = () => {
             </tbody>
           </table>
         </div>
+        )
       )}
     </div>
   );

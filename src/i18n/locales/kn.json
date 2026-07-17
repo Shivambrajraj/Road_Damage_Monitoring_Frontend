@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "ಮುಖಪುಟ",
+    "console": "ಕನ್ಸೋಲ್",
+    "deployRun": "ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
+    "gisMap": "ಜಿಐಎಸ್ ನಕ್ಷೆ",
+    "analytics": "ಅನಾಲಿಟಿಕ್ಸ್",
+    "admin": "ನಿರ್ವಾಹಕ",
+    "accessPortal": "ಪೋರ್ಟಲ್ ಪ್ರವೇಶಿಸಿ",
+    "disconnect": "ಲಾಗ್ ಔಟ್",
+    "search": "ಪುಟಗಳು, ವರದಿಗಳು, ಅನಾಲಿಟಿಕ್ಸ್ ಹುಡುಕಿ…",
+    "searchShort": "ಹುಡುಕಿ…"
+  },
+  "region": {
+    "label": "ಪ್ರದೇಶ",
+    "national": "ರಾಷ್ಟ್ರೀಯ ನೋಟ",
+    "states": "ರಾಜ್ಯಗಳು",
+    "unionTerritories": "ಕೇಂದ್ರಾಡಳಿತ ಪ್ರದೇಶಗಳು"
+  },
+  "profile": {
+    "myProfile": "ನನ್ನ ಪ್ರೊಫೈಲ್",
+    "accountSettings": "ಖಾತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "preferences": "ಆದ್ಯತೆಗಳು",
+    "appearance": "ಗೋಚರತೆ",
+    "language": "ಭಾಷೆ",
+    "notifications": "ಅಧಿಸೂಚನೆಗಳು",
+    "support": "ಬೆಂಬಲ",
+    "logout": "ಲಾಗ್ ಔಟ್"
+  },
+  "notifications": {
+    "title": "ಅಧಿಸೂಚನೆಗಳು",
+    "markAllRead": "ಎಲ್ಲವನ್ನೂ ಓದಿದಂತೆ ಗುರುತಿಸಿ",
+    "viewAll": "ಎಲ್ಲಾ ಚಟುವಟಿಕೆ ವೀಕ್ಷಿಸಿ",
+    "empty": "ನೀವು ನವೀಕೃತವಾಗಿದ್ದೀರಿ."
+  },
+  "command": {
+    "placeholder": "ಆದೇಶ ಟೈಪ್ ಮಾಡಿ ಅಥವಾ ಹುಡುಕಿ…",
+    "pages": "ಪುಟಗಳು",
+    "reports": "ವರದಿಗಳು",
+    "analytics": "ಅನಾಲಿಟಿಕ್ಸ್",
+    "gis": "ಜಿಐಎಸ್",
+    "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "documentation": "ದಸ್ತಾವೇಜನ್ನು",
+    "commands": "ಆದೇಶಗಳು",
+    "noResults": "ಫಲಿತಾಂಶಗಳು ಕಂಡುಬಂದಿಲ್ಲ.",
+    "hint": "ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ",
+    "select": "ಆಯ್ಕೆಮಾಡಿ",
+    "close": "ಮುಚ್ಚಿ"
+  },
+  "footer": {
+    "platform": "ವೇದಿಕೆ",
+    "solutions": "ಪರಿಹಾರಗಳು",
+    "technology": "ತಂತ್ರಜ್ಞಾನ",
+    "resources": "ಸಂಪನ್ಮೂಲಗಳು",
+    "company": "ಕಂಪನಿ",
+    "support": "ಬೆಂಬಲ",
+    "privacy": "ಗೌಪ್ಯತಾ ನೀತಿ",
+    "terms": "ಸೇವಾ ನಿಯಮಗಳು",
+    "rights": "ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
+  }
+}

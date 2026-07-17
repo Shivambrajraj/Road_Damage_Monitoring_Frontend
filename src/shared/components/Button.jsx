@@ -2,12 +2,12 @@
 import React from 'react';
 
 const Button = ({ children, type = 'button', variant = 'primary', onClick, disabled = false, className = '' }) => {
-  const baseStyle = "w-full sm:w-auto text-center font-bold text-xs px-6 py-3 rounded-lg tracking-wide transition-colors cursor-pointer disabled:bg-slate-800 disabled:text-slate-600 disabled:cursor-not-allowed";
-  
+  const baseStyle = "w-full sm:w-auto text-center font-bold text-xs px-6 py-3 rounded-lg tracking-wide transition-all duration-200 cursor-pointer disabled:bg-slate-800 disabled:text-slate-600 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 focus-visible:ring-sky-400";
+
   const variants = {
-    primary: "bg-sky-500 hover:bg-sky-400 text-slate-950 shadow-lg shadow-sky-500/10",
-    secondary: "bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700",
-    danger: "bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20"
+    primary: "bg-sky-500 hover:bg-sky-400 text-slate-950 shadow-lg shadow-sky-500/10 hover:shadow-xl hover:shadow-sky-500/25",
+    secondary: "bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600",
+    danger: "bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 hover:shadow-lg hover:shadow-red-500/10"
   };
 
   return (

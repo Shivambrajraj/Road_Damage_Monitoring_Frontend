@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "হোম",
+    "console": "কনসোল",
+    "deployRun": "আপলোড করুন",
+    "gisMap": "জিআইএস মানচিত্র",
+    "analytics": "অ্যানালিটিক্স",
+    "admin": "অ্যাডমিন",
+    "accessPortal": "পোর্টালে প্রবেশ করুন",
+    "disconnect": "লগ আউট",
+    "search": "পেজ, রিপোর্ট, অ্যানালিটিক্স খুঁজুন…",
+    "searchShort": "খুঁজুন…"
+  },
+  "region": {
+    "label": "অঞ্চল",
+    "national": "জাতীয় দৃশ্য",
+    "states": "রাজ্য",
+    "unionTerritories": "কেন্দ্রশাসিত অঞ্চল"
+  },
+  "profile": {
+    "myProfile": "আমার প্রোফাইল",
+    "accountSettings": "অ্যাকাউন্ট সেটিংস",
+    "preferences": "পছন্দসমূহ",
+    "appearance": "চেহারা",
+    "language": "ভাষা",
+    "notifications": "বিজ্ঞপ্তি",
+    "support": "সহায়তা",
+    "logout": "লগ আউট"
+  },
+  "notifications": {
+    "title": "বিজ্ঞপ্তি",
+    "markAllRead": "সব পঠিত হিসেবে চিহ্নিত করুন",
+    "viewAll": "সব কার্যকলাপ দেখুন",
+    "empty": "আপনি সব আপডেট দেখে নিয়েছেন।"
+  },
+  "command": {
+    "placeholder": "একটি কমান্ড টাইপ করুন বা খুঁজুন…",
+    "pages": "পেজ",
+    "reports": "রিপোর্ট",
+    "analytics": "অ্যানালিটিক্স",
+    "gis": "জিআইএস",
+    "dashboard": "ড্যাশবোর্ড",
+    "settings": "সেটিংস",
+    "documentation": "ডকুমেন্টেশন",
+    "commands": "কমান্ড",
+    "noResults": "কোনো ফলাফল পাওয়া যায়নি।",
+    "hint": "নেভিগেট করুন",
+    "select": "নির্বাচন করুন",
+    "close": "বন্ধ করুন"
+  },
+  "footer": {
+    "platform": "প্ল্যাটফর্ম",
+    "solutions": "সমাধান",
+    "technology": "প্রযুক্তি",
+    "resources": "সম্পদ",
+    "company": "কোম্পানি",
+    "support": "সহায়তা",
+    "privacy": "গোপনীয়তা নীতি",
+    "terms": "পরিষেবার শর্তাবলী",
+    "rights": "সর্বস্বত্ব সংরক্ষিত।"
+  }
+}

@@ -5,6 +5,7 @@ import { formatDate } from '../../../shared/utils/formatDate';
 import { REPORT_STATUS_LABELS } from '../../../shared/utils/constants';
 import { useAuth } from '../../auth/context/AuthContext';
 import reportService from '../services/reportService';
+import EmptyState from '../../../shared/components/EmptyState';
 
 const ReportTable = ({ reports, onStatusUpdated }) => {
   const { isAdmin } = useAuth();
@@ -33,11 +34,13 @@ const ReportTable = ({ reports, onStatusUpdated }) => {
 
   if (!reports || reports.length === 0) {
     return (
-      <div className="text-center py-12 border border-slate-900 border-dashed rounded-xl bg-slate-950/20">
-        <span className="text-2xl block mb-2">📁</span>
-        <p className="text-xs text-slate-400 font-medium">No reports found matching your active filters.</p>
-        <p className="text-[10px] text-slate-600 mt-1">Try resetting the status or severity search parameters.</p>
-      </div>
+      <EmptyState
+        icon="folder"
+        title="No reports found"
+        description="No road anomaly reports match your active filters. Try resetting the status, severity, or search parameters — or upload the first image to get started."
+        ctaLabel="Upload a Report"
+        ctaTo="/upload"
+      />
     );
   }
 
@@ -62,7 +65,7 @@ const ReportTable = ({ reports, onStatusUpdated }) => {
               const statKey = report.status?.toLowerCase() || 'pending';
 
               return (
-                <tr key={report.id} className="hover:bg-slate-900/20 transition-all duration-150">
+                <tr key={report.id} className="group hover:bg-slate-900/40 transition-colors duration-150 border-l-2 border-transparent hover:border-sky-500/60">
                   <td className="px-6 py-4 font-mono text-[11px] text-slate-500">
                     #{String(report.id).substring(0, 8)}
                   </td>

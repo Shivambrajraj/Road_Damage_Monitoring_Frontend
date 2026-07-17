@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "હોમ",
+    "console": "કન્સોલ",
+    "deployRun": "અપલોડ કરો",
+    "gisMap": "જીઆઈએસ નકશો",
+    "analytics": "એનાલિટિક્સ",
+    "admin": "એડમિન",
+    "accessPortal": "પોર્ટલમાં પ્રવેશ કરો",
+    "disconnect": "લોગ આઉટ",
+    "search": "પૃષ્ઠો, અહેવાલો, એનાલિટિક્સ શોધો…",
+    "searchShort": "શોધો…"
+  },
+  "region": {
+    "label": "પ્રદેશ",
+    "national": "રાષ્ટ્રીય દૃશ્ય",
+    "states": "રાજ્યો",
+    "unionTerritories": "કેન્દ્રશાસિત પ્રદેશો"
+  },
+  "profile": {
+    "myProfile": "મારી પ્રોફાઇલ",
+    "accountSettings": "ખાતા સેટિંગ્સ",
+    "preferences": "પસંદગીઓ",
+    "appearance": "દેખાવ",
+    "language": "ભાષા",
+    "notifications": "સૂચનાઓ",
+    "support": "સહાય",
+    "logout": "લોગ આઉટ"
+  },
+  "notifications": {
+    "title": "સૂચનાઓ",
+    "markAllRead": "બધું વાંચેલ ચિહ્નિત કરો",
+    "viewAll": "બધી પ્રવૃત્તિ જુઓ",
+    "empty": "તમે અપડેટ છો."
+  },
+  "command": {
+    "placeholder": "કમાન્ડ ટાઈપ કરો અથવા શોધો…",
+    "pages": "પૃષ્ઠો",
+    "reports": "અહેવાલો",
+    "analytics": "એનાલિટિક્સ",
+    "gis": "જીઆઈએસ",
+    "dashboard": "ડેશબોર્ડ",
+    "settings": "સેટિંગ્સ",
+    "documentation": "દસ્તાવેજીકરણ",
+    "commands": "કમાન્ડ્સ",
+    "noResults": "કોઈ પરિણામ મળ્યું નથી.",
+    "hint": "નેવિગેટ કરો",
+    "select": "પસંદ કરો",
+    "close": "બંધ કરો"
+  },
+  "footer": {
+    "platform": "પ્લેટફોર્મ",
+    "solutions": "ઉકેલો",
+    "technology": "ટેકનોલોજી",
+    "resources": "સંસાધનો",
+    "company": "કંપની",
+    "support": "સહાય",
+    "privacy": "ગોપનીયતા નીતિ",
+    "terms": "સેવાની શરતો",
+    "rights": "બધા હકો અનામત."
+  }
+}
