@@ -1,25 +1,26 @@
 // frontend/src/routes/AppRoutes.jsx
+// frontend/src/routes/AppRoutes.jsx
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Layout Blueprint Wrapper Frame
-import MainLayout from '../layouts/MainLayout';
+import MainLayout from '../layouts/MainLayout.jsx';
 
 // Core Target Viewports / Pages
-import HomePage from '../pages/HomePage';
-import DashboardPage from '../pages/DashboardPage';
-import UploadPage from '../pages/UploadPage';
-import ReportDetailsPage from '../pages/ReportDetailsPage';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
-import AnalyticsPage from '../pages/AnalyticsPage';
-import MapPage from '../pages/MapPage';
-import AdminPage from '../pages/AdminPage';
-import NotFoundPage from '../pages/NotFoundPage';
+import HomePage from '../pages/HomePage.jsx';
+import DashboardPage from '../pages/DashboardPage.jsx';
+import UploadPage from '../pages/UploadPage.jsx';
+import ReportDetailsPage from '../pages/ReportDetailsPage.jsx';
+import LoginPage from '../pages/LoginPage.jsx';
+import RegisterPage from '../pages/RegisterPage.jsx';
+import AnalyticsPage from '../pages/AnalyticsPage.jsx';
+import MapPage from '../pages/MapPage.jsx';
+import AdminPage from '../pages/AdminPage.jsx';
+import NotFoundPage from '../pages/NotFoundPage.jsx';
 
 // Security Gatekeeper Fence
-import ProtectedRoute from './ProtectedRoute';
-import AdminRoute from './AdminRoute';
+import ProtectedRoute from './ProtectedRoute.jsx';
+import AdminRoute from './AdminRoute.jsx';
 
 const AppRoutes = () => {
   return (

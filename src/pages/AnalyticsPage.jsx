@@ -25,6 +25,7 @@ const AnalyticsPage = () => {
   const [usingFallback, setUsingFallback] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
 
+  // Keep the data execution handler safely isolated
   const fetchAnalyticsMatrix = useCallback(async () => {
     setLoading(true);
     try {
@@ -41,9 +42,10 @@ const AnalyticsPage = () => {
     }
   }, []);
 
+  // Fire safely EXACTLY ONCE on mount to ensure stable rendering lifecycles
   useEffect(() => {
     fetchAnalyticsMatrix();
-  }, [fetchAnalyticsMatrix]);
+  }, []); // Empty array ensures this never forms an infinite loop
 
   const displayData = analyticsData || FALLBACK_DATA;
   const { severity = {}, trends = [] } = displayData;

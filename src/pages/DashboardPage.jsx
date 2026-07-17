@@ -21,6 +21,7 @@ const ACTIVITY_DOT = {
 };
 
 function timeAgo(iso) {
+  if (!iso) return 'unknown';
   const mins = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
   if (mins < 1) return 'just now';
   if (mins < 60) return `${mins}m ago`;
@@ -31,7 +32,9 @@ function timeAgo(iso) {
 const DashboardPage = () => {
   const [search, setSearch] = useState('');
   const [stats, setStats] = useState({ total_anomalies: 0, high_severity: 0, system_health: '100%' });
-  const { reports, loading, filters, setFilters, refetch } = useReports();
+  
+  // Safeguard hook outputs by handling empty fallback defaults
+  const { reports = [], loading, filters = {}, setFilters, refetch } = useReports() || {};
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -54,13 +57,17 @@ const DashboardPage = () => {
     setFilters({});
   };
 
-  const filteredReports = reports.filter(item =>
-    item.type?.toLowerCase().includes(search.toLowerCase()) ||
-    item.id?.toString().includes(search)
+  // Safe optional chaining checks to protect filtering operations
+  const filteredReports = (reports || []).filter(item =>
+    item?.type?.toLowerCase().includes(search.toLowerCase()) ||
+    item?.id?.toString().includes(search)
   );
 
-  const typeCounts = reports.reduce((acc, curr) => {
-    acc[curr.type] = (acc[curr.type] || 0) + 1;
+  // SAFE ARRAY REDUCE PROCESSOR (Includes fallback check for type property)
+  const typeCounts = (reports || []).reduce((acc, curr) => {
+    if (curr && curr.type) {
+      acc[curr.type] = (acc[curr.type] || 0) + 1;
+    }
     return acc;
   }, {});
 
@@ -123,22 +130,21 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      {/* System status + activity timeline — realistic live-system feel */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-slate-950 border border-slate-800/80 rounded-2xl p-5 space-y-4 hover-lift"
+          className="bg-slate-950 border border-slate-800/80 rounded-2xl p-5 space-y-4"
         >
           <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">System Status</h4>
           <div className="space-y-3">
-            {Object.entries(MOCK_SYSTEM_STATUS).map(([key, val]) => (
+            {MOCK_SYSTEM_STATUS && Object.entries(MOCK_SYSTEM_STATUS).map(([key, val]) => (
               <div key={key} className="flex items-center justify-between text-[11px]">
                 <span className="text-slate-400 capitalize font-mono">{key.replace(/([A-Z])/g, ' $1')}</span>
                 <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  {val.status}
+                  {val?.status}
                 </span>
               </div>
             ))}
@@ -149,11 +155,11 @@ const DashboardPage = () => {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.05 }}
-          className="bg-slate-950 border border-slate-800/80 rounded-2xl p-5 space-y-4 hover-lift"
+          className="bg-slate-950 border border-slate-800/80 rounded-2xl p-5 space-y-4"
         >
           <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Activity Timeline</h4>
           <ul className="space-y-3">
-            {MOCK_ACTIVITY_TIMELINE.map((a) => (
+            {MOCK_ACTIVITY_TIMELINE && MOCK_ACTIVITY_TIMELINE.map((a) => (
               <li key={a.id} className="flex items-start gap-2.5 text-[11px]">
                 <span className={`mt-1 w-1.5 h-1.5 rounded-full shrink-0 ${ACTIVITY_DOT[a.status] || 'bg-slate-500'}`} />
                 <div className="min-w-0">
@@ -171,11 +177,11 @@ const DashboardPage = () => {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.1 }}
-          className="bg-slate-950 border border-slate-800/80 rounded-2xl p-5 space-y-4 hover-lift"
+          className="bg-slate-950 border border-slate-800/80 rounded-2xl p-5 space-y-4"
         >
           <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Recent Uploads</h4>
           <ul className="space-y-2.5">
-            {MOCK_RECENT_UPLOADS.map((u) => (
+            {MOCK_RECENT_UPLOADS && MOCK_RECENT_UPLOADS.map((u) => (
               <li key={u.id} className="flex items-center justify-between gap-2 text-[11px]">
                 <div className="flex items-center gap-2 min-w-0">
                   <UploadCloudIcon className="w-3.5 h-3.5 text-sky-400 shrink-0" />
